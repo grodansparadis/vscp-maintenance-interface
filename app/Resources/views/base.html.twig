@@ -3,11 +3,52 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}VSCP Maintenance Interface{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+      <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+      {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="{{ path('vascpmaint_home') }}"><span class="glyphicon glyphicon-home" /></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ 'Data'   | trans }} <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">{{ 'Classes' | trans }}</a></li>
+                <li><a href="#">Types</a></li>
+                <li><a href="#">{{ 'Bytes' | trans }}</a></li>
+                <li><a href="#">{{ 'Units' | trans }}</a></li>
+              </ul>
+            </li>
+
+
+            <li><a href="#">{{ 'About' | trans }}</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user" /> -firstname-<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a class="glyphicon glyphicon-log-out" href="#"> {{ 'Logout' | trans }}</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user" /> {{ 'Anonymous' | trans }} <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a class="glyphicon glyphicon-log-in" href="#"> {{ 'Login' | trans }}</a></li>
+                </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>        {% block body %}{% endblock %}
+    <script type="text/javascript" src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
         {% block javascripts %}{% endblock %}
     </body>
 </html>
