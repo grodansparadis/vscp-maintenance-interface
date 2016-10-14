@@ -6,7 +6,17 @@
 <div class="input-group">
 	<div class="form-group">
 	  {{ form_label(form.vscpclass, "Class") }}
+	  {{ form_errors(form.vscpclass) }}
+	  {{ form_widget(form.vscpclass) }}
+	</div>
+	<div class="form-group">
+	  {{ form_label(form.vscpclassName, "Class name") }}
 	  {{ form_errors(form.vscpclassName) }}
+	  {{ form_widget(form.vscpclassName) }}
+	</div>
+	<div class="form-group">
+	  {{ form_label(form.vscpclassToken, "Class token") }}
+	  {{ form_errors(form.vscpclassToken) }}
 	  {{ form_widget(form.vscpclassToken) }}
 	</div>
 	{{ form_rest(form) }}
