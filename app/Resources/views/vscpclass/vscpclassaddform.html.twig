@@ -1,5 +1,5 @@
 <div>
-<form action="{{ path('vscpmaint_vscpclassadd') }}" method="post" {{ form_start(form) }}
+ {{ form_start(form, {'action' : path('vscpmaint_vscpclassadd') }) }}
 
 {{ form_errors(form) }}
 
@@ -16,5 +16,5 @@
 	</div>
 </div>
 
-</form>
+{{ form_end(form)}}
 </div>
