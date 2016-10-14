@@ -1,0 +1,55 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * VSCPClass
+ *
+ * @ORM\Table(name="vscpmaint_class")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\VSCPClassRepository")
+ */
+class VSCPClass
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="vscpclass", type="integer", unique=true)
+     */
+    private $vscpclass;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="vscpclass_name", type="string", length=255)
+     */
+    private $vscpclassName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="vscpclass_token", type="string", length=255, unique=true)
+     */
+    private $vscpclassToken;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="vscpclass_description", type="text")
+     */
+    private $vscpclassDescription;
+
+
+
+}
+

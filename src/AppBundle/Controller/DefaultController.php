@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="vascpmaint_home")
+     * @Route("/", name="vscpmaint_home")
      */
     public function indexAction(Request $request)
     {
@@ -19,7 +19,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/about", name="vascpmaint_about")
+     * @Route("/about", name="vscpmaint_about")
      */
     public function aboutAction(Request $request)
     {

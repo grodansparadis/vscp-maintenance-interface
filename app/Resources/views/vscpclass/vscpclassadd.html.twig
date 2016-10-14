@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+<br>
+<br>
+<br>
+  <h2>{{ 'Add a VSCP Class' | trans }}</h2>
+<ul>
+  {% include "vscpclass/vscpclassaddform.html.twig" %}
+</ul>
+{% endblock %}
+

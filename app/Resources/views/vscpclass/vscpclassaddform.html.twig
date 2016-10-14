@@ -1,0 +1,20 @@
+<div>
+<form action="{{ path('vscpmaint_vscpclassadd') }}" method="post" {{ form_start(form) }}
+
+{{ form_errors(form) }}
+
+<div class="input-group">
+	<div class="form-group">
+	  {{ form_label(form.vscpclass, "Class") }}
+	  {{ form_errors(form.vscpclassName) }}
+	  {{ form_widget(form.vscpclassToken) }}
+	</div>
+	{{ form_rest(form) }}
+
+	<div>
+	  <input type="submit" class="btn btn-primary" />
+	</div>
+</div>
+
+</form>
+</div>
