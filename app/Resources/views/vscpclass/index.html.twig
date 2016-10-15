@@ -1,9 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<br>
-<br>
-<br>
   <h2>{{ 'Classes' | trans }}</h2>
 
         <div>
@@ -16,7 +13,6 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>{{ 'ID' | trans }}</th>
                   <th>{{ 'Class' | trans }}</th>
                   <th>{{ 'Name' | trans }}</th>
                   <th>{{ 'Token' | trans }}</th>
@@ -27,7 +23,6 @@
               <tbody>
 			  {% for vscpclass in vscpclass %}
                 <tr>
-                  <td>{{ vscpclass.id}}</td>
                   <td>{{ vscpclass.vscpclass | trans }}</td>
                   <td>{{ vscpclass.vscpclassName | trans }}</td>
                   <td>{{ vscpclass.vscpclassToken | trans }}</td>

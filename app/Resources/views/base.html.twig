@@ -45,9 +45,31 @@
           </ul>
         </div><!--/.nav-collapse -->
       </div>
-    </div>        {% block body %}{% endblock %}
+    </div>
+    <br>
+    <br>
+    <br>
+            <div class="container">
+
+      <div class="row">
+        <div id="content" class="span9">
+    {% block body %}
+    {% endblock %}
+        </div>
+      </div>
+
+      <hr>
+
+      <footer>
+       <div class="container text-center">
+            <p>Copyright &copy; 2000-2016 <a href="http://www.paradiseofthefrog.com">Paradise of the Frog AB</a><br /></p>
+        </div>
+      </footer>
+    </div>
+
+    {% block javascripts %}
     <script type="text/javascript" src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
-        {% block javascripts %}{% endblock %}
+    {% endblock %}
     </body>
 </html>

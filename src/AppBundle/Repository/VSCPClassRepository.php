@@ -22,7 +22,7 @@ class VSCPClassRepository extends \Doctrine\ORM\EntityRepository
       a.vscpclassToken,
       a.vscpclassDescription
       FROM AppBundle:VSCPClass a
-      ORDER BY a.id
+      ORDER BY a.vscpclass
       ");
     return $query->getResult();
 

@@ -51,17 +51,54 @@ class VSCPClassController extends Controller
     }
 
     /**
-     * @Route("/vscpclass_edit", name="vscpmaint_vscpclassedit")
+     * @Route("/vscpclass_delete/{id}", name="vscpmaint_vscpclassdelete")
      */
-    public function classeditAction(Request $request)
+    public function classdeleteAction(Request $request, VSCPClass $vscpclass)
     {
+
+    $form = $this->createFormBuilder()->getForm();
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($vscpclass);
+        $em->flush();
+
+        $this->get('session')->getFlashBag()->add('info', 'Class deleted');
+
+        return $this->redirect($this->generateUrl('vscpmaint_vscpclass'));
+
+      }
+
+    return $this->render('vscpclass/vscpclassdel.html.twig', [
+      'vscpclass' => $vscpclass,
+      'form'    => $form->createView()
+    ]);
     }
 
     /**
-     * @Route("/vscpclass_delete", name="vscpmaint_vscpclassdelete")
+     * @Route("/vscpclass_edit/{id}", name="vscpmaint_vscpclassedit")
      */
-    public function classdeleteAction(Request $request)
+    public function classeditAction(Request $request, VSCPClass $vscpclass)
     {
+    $form = $this->createForm(VSCPClassType::class, $vscpclass);
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($vscpclass);
+        $em->flush();
+
+        $this->get('session')->getFlashBag()->add('info', 'Class updated');
+
+        return $this->redirect($this->generateUrl('vscpmaint_vscpclass'));
+
+      }
+
+    return $this->render('vscpclass/vscpclassedit.html.twig', [
+      'vscpclass' => $vscpclass,
+      'form'    => $form->createView()
+    ]);
     }
 
 }
