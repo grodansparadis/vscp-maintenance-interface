@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+  <h2>{{ 'Add a VSCP Type' | trans }}</h2>
+<ul>
+  {% include "vscptype/vscptypeaddform.html.twig" %}
+</ul>
+{% endblock %}
+

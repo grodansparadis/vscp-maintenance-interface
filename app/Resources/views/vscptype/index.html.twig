@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <h2>{{ 'Types' | trans }}</h2>
+
+        <div>
+          <a class="btn btn-default btn-sm glyphicon glyphicon-plus" href="{{ path('vscpmaint_vscptypeadd') }}">
+            {{ 'Add' | trans }}
+          </a>
+        </div>
+        <div>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>{{ 'Type' | trans }}</th>
+                  <th>{{ 'Class' | trans }}</th>
+                  <th>{{ 'Description' | trans }}</th>
+                  <th colspan = 2>&nbsp;</th>
+                </tr>
+              </thead>
+              <tbody>
+			  {% for vscptype in vscptype %}
+                <tr>
+                  <td>{{ vscptype.vscptype | trans }}</td>
+                  <td>{{ vscptype.vscpclassName | trans }}</td>
+                  <td>{{ vscptype.vscptypeDescription | trans }}</td>
+                  <td>
+                    <a class="btn glyphicon glyphicon-pencil" href="{{ path('vscpmaint_vscptypeedit', {'id': vscptype.id}) }}">
+                    <a class="btn glyphicon glyphicon-trash" href="{{ path('vscpmaint_vscptypedelete', {'id': vscptype.id}) }}">
+                   </td>
+                </tr>
+			  {% else %}
+			    <p>{{ 'No record in this table' | trans }}.</p>
+			  {% endfor %}
+              </tbody>
+            </table>
+          </div>
+      </div>
+
+
+{% endblock %}
+
+

@@ -1,0 +1,30 @@
+<div>
+<form action="{{ path('vscpmaint_vscptypeedit', {'id': vscptype.id}) }}" method="post">
+
+{{ form_errors(form) }}
+
+<div class="input-group">
+	<div class="form-group">
+	  {{ form_label(form.vscptype, "Type") }}
+	  {{ form_errors(form.vscptype) }}
+	  {{ form_widget(form.vscptype) }}
+	</div>
+	<div class="form-group">
+	  {{ form_label(form.vscpclass, "Class") }}
+	  {{ form_errors(form.vscpclass) }}
+	  {{ form_widget(form.vscpclass) }}
+	</div>
+	<div class="form-group">
+	  {{ form_label(form.vscptypeDescription, "Description") }}
+	  {{ form_errors(form.vscptypeDescription) }}
+	  {{ form_widget(form.vscptypeDescription) }}
+	</div>
+	{{ form_rest(form) }}
+
+	<div>
+	  <input type="submit" class="btn btn-primary" />
+	</div>
+</div>
+
+</form>
+</div>

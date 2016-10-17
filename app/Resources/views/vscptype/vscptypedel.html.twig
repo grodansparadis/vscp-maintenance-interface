@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+  <h2>{{ 'Delete a type' | trans }}</h2>
+
+  <p>
+    {{ 'Confirm you want to delete type' | trans }} : {{ vscptype.vscptype }}.
+  </p>
+
+  <form action="{{ path('vscpmaint_vscptypedelete', {'id': vscptype.id}) }}" method="post">
+    <a href="{{ path('vscpmaint_vscptype')}}" class="btn btn-default glyphicon glyphicon-chevron-left">
+      Back
+    </a>
+    <input type="submit" value="Delete" class="btn btn-danger" />
+    {{ form_rest(form) }}
+  </form>
+
+{% endblock %}
