@@ -21,7 +21,7 @@ class VSCPTypeRepository extends \Doctrine\ORM\EntityRepository
       b.vscpclassName,
       a.vscptypeDescription
       FROM AppBundle:VSCPType a
-      LEFT JOIN AppBundle:VSCPClass b with a.vscpclass = b.id
+      LEFT JOIN AppBundle:VSCPClass b with a.vscptypeclass = b.id
       ORDER BY a.vscptype
       ");
     return $query->getResult();
