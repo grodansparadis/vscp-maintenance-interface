@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <h2>{{ 'Bytes' | trans }}</h2>
+
+        <div>
+          <a class="btn btn-default btn-sm glyphicon glyphicon-plus" href="{{ path('vscpmaint_vscpbyteadd') }}">
+            {{ 'Add' | trans }}
+          </a>
+        </div>
+        <div>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>{{ 'Byte' | trans }}</th>
+                  <th>{{ 'Type' | trans }}</th>
+                  <th>{{ 'NByte' | trans }}</th>
+                  <th>{{ 'Description' | trans }}</th>
+                  <th colspan = 2>&nbsp;</th>
+                </tr>
+              </thead>
+              <tbody>
+			  {% for vscpbyte in vscpbyte %}
+                <tr>
+                  <td>{{ vscpbyte.vscpbyte | trans }}</td>
+                  <td>{{ vscpbyte.vscptype | trans }}</td>
+                  <td>{{ vscpbyte.vscpnbyte | trans }}</td>
+                  <td>{{ vscpbyte.vscpbyteDescription | trans }}</td>
+                  <td>
+                    <a class="btn glyphicon glyphicon-pencil" href="{{ path('vscpmaint_vscpbyteedit', {'id': vscpbyte.id}) }}">
+                    <a class="btn glyphicon glyphicon-trash" href="{{ path('vscpmaint_vscpbytedelete', {'id': vscpbyte.id}) }}">
+                   </td>
+                </tr>
+			  {% else %}
+			    <p>{{ 'No record in this table' | trans }}.</p>
+			  {% endfor %}
+              </tbody>
+            </table>
+          </div>
+      </div>
+
+
+{% endblock %}
+
+

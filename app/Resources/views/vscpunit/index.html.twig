@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <h2>{{ 'Units' | trans }}</h2>
+
+        <div>
+          <a class="btn btn-default btn-sm glyphicon glyphicon-plus" href="{{ path('vscpmaint_vscpunitadd') }}">
+            {{ 'Add' | trans }}
+          </a>
+        </div>
+        <div>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>{{ 'Unit' | trans }}</th>
+                  <th>{{ 'Type' | trans }}</th>
+                  <th>{{ 'NUnit' | trans }}</th>
+                  <th>{{ 'Description' | trans }}</th>
+                  <th colspan = 2>&nbsp;</th>
+                </tr>
+              </thead>
+              <tbody>
+			  {% for vscpunit in vscpunit %}
+                <tr>
+                  <td>{{ vscpunit.vscpunit | trans }}</td>
+                  <td>{{ vscpunit.vscptype | trans }}</td>
+                  <td>{{ vscpunit.vscpnunit | trans }}</td>
+                  <td>{{ vscpunit.vscpunitDescription | trans }}</td>
+                  <td>
+                    <a class="btn glyphicon glyphicon-pencil" href="{{ path('vscpmaint_vscpunitedit', {'id': vscpunit.id}) }}">
+                    <a class="btn glyphicon glyphicon-trash" href="{{ path('vscpmaint_vscpunitdelete', {'id': vscpunit.id}) }}">
+                   </td>
+                </tr>
+			  {% else %}
+			    <p>{{ 'No record in this table' | trans }}.</p>
+			  {% endfor %}
+              </tbody>
+            </table>
+          </div>
+      </div>
+
+
+{% endblock %}
+
+

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+  <h2>{{ 'Add a VSCP Unit' | trans }}</h2>
+<ul>
+  {% include "vscpunit/vscpunitaddform.html.twig" %}
+</ul>
+{% endblock %}
+
