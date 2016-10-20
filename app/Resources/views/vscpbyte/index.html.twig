@@ -26,7 +26,7 @@
                   <td>{{ vscpbyte.vscpbyte | trans }}</td>
                   <td>{{ vscpbyte.vscptype | trans }}</td>
                   <td>{{ vscpbyte.vscpnbyte | trans }}</td>
-                  <td>{{ vscpbyte.vscpbyteDescription | trans }}</td>
+                  <td>{{ vscpbyte.vscpbyteDescription | slice(0, 100) }}...</td>
                   <td>
                     <a class="btn glyphicon glyphicon-pencil" href="{{ path('vscpmaint_vscpbyteedit', {'id': vscpbyte.id}) }}">
                     <a class="btn glyphicon glyphicon-trash" href="{{ path('vscpmaint_vscpbytedelete', {'id': vscpbyte.id}) }}">

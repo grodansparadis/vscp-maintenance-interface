@@ -29,6 +29,13 @@ class VSCPType
     private $vscptype;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="vscptype_name", type="string", length=255)
+     */
+    private $vscptypeName;
+
+    /**
     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\VSCPClass", cascade={"persist"})
     */
     private $vscptypeclass;
@@ -122,5 +129,29 @@ class VSCPType
     public function getVscptypeclass()
     {
         return $this->vscptypeclass;
+    }
+
+    /**
+     * Set vscptypeName
+     *
+     * @param string $vscptypeName
+     *
+     * @return VSCPType
+     */
+    public function setVscptypeName($vscptypeName)
+    {
+        $this->vscptypeName = $vscptypeName;
+
+        return $this;
+    }
+
+    /**
+     * Get vscptypeName
+     *
+     * @return string
+     */
+    public function getVscptypeName()
+    {
+        return $this->vscptypeName;
     }
 }

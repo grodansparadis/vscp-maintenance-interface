@@ -18,6 +18,7 @@ class VSCPTypeRepository extends \Doctrine\ORM\EntityRepository
       SELECT
       a.id,
       a.vscptype,
+      a.vscptypeName,
       b.vscpclassName,
       a.vscptypeDescription
       FROM AppBundle:VSCPType a

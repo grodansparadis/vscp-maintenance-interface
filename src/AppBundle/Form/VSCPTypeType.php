@@ -18,6 +18,7 @@ class VSCPTypeType extends AbstractType
     {
         $builder
             ->add('vscptype')
+            ->add('vscptypeName')
 
             ->add('vscptypeclass', EntityType::class, array(
               'class'    => 'AppBundle:VSCPClass',

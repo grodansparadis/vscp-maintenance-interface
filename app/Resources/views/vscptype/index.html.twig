@@ -14,6 +14,7 @@
               <thead>
                 <tr>
                   <th>{{ 'Type' | trans }}</th>
+                  <th>{{ 'Name' | trans }}</th>
                   <th>{{ 'Class' | trans }}</th>
                   <th>{{ 'Description' | trans }}</th>
                   <th colspan = 2>&nbsp;</th>
@@ -23,8 +24,9 @@
 			  {% for vscptype in vscptype %}
                 <tr>
                   <td>{{ vscptype.vscptype | trans }}</td>
+                  <td>{{ vscptype.vscptypeName | trans }}</td>
                   <td>{{ vscptype.vscpclassName | trans }}</td>
-                  <td>{{ vscptype.vscptypeDescription | trans }}</td>
+                  <td>{{ vscptype.vscptypeDescription | slice(0, 100) }}...</td>
                   <td>
                     <a class="btn glyphicon glyphicon-pencil" href="{{ path('vscpmaint_vscptypeedit', {'id': vscptype.id}) }}">
                     <a class="btn glyphicon glyphicon-trash" href="{{ path('vscpmaint_vscptypedelete', {'id': vscptype.id}) }}">
