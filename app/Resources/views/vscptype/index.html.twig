@@ -4,9 +4,20 @@
   <h2>{{ 'Types' | trans }}</h2>
 
         <div>
-          <a class="btn btn-default btn-sm glyphicon glyphicon-plus" href="{{ path('vscpmaint_vscptypeadd') }}">
-            {{ 'Add' | trans }}
-          </a>
+          
+          {{ form_start(form, {'action' : path('vscpmaint_vscptype') }) }}
+          {{ form_errors(form) }}
+<div class="input-group">
+  <div class="form-group">
+    {{ form_errors(form.vscpclassName) }}
+    {{ form_widget(form.vscpclassName) }}
+  {{ form_rest(form) }}
+
+    <input type="submit" class="btn btn-primary" value="Show"/>
+
+    <a class="btn btn-primary" href="{{ path('vscpmaint_vscptypeadd') }}">{{ 'Add' | trans }}</a>
+  </div>
+
         </div>
         <div>
           <div class="table-responsive">
@@ -21,6 +32,7 @@
                 </tr>
               </thead>
               <tbody>
+{% if vscptype is defined %}
 			  {% for vscptype in vscptype %}
                 <tr>
                   <td>{{ vscptype.vscptype | trans }}</td>
@@ -36,6 +48,7 @@
 			  {% else %}
 			    <p>{{ 'No record in this table' | trans }}.</p>
 			  {% endfor %}
+{% endif %}
               </tbody>
             </table>
           </div>

@@ -28,4 +28,24 @@ class VSCPTypeRepository extends \Doctrine\ORM\EntityRepository
     return $query->getResult();
 
   }
+
+  public function GetVSCPTypeByClass($vscpclassid)
+  {
+
+    $em = $this->getEntityManager();
+    $query = $em->createQuery("
+      SELECT
+      a.id,
+      a.vscptype,
+      a.vscptypeName,
+      b.vscpclassName,
+      a.vscptypeDescription
+      FROM AppBundle:VSCPType a
+      LEFT JOIN AppBundle:VSCPClass b with a.vscptypeclass = b.id
+      where b.id = $vscpclassid     
+      ORDER BY a.vscptype
+      ");
+    return $query->getResult();
+
+  }
 }

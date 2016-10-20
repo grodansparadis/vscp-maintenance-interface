@@ -27,4 +27,5 @@ class VSCPClassRepository extends \Doctrine\ORM\EntityRepository
     return $query->getResult();
 
   }
+
 }

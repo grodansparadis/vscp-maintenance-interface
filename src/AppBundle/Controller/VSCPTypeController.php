@@ -3,7 +3,10 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\VSCPType;
+use AppBundle\Entity\VSCPClass;
 use AppBundle\Form\VSCPTypeType;
+use AppBundle\Form\VSCPClassType;
+use AppBundle\Form\VSCPClassListType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,15 +18,36 @@ class VSCPTypeController extends Controller
      */
     public function vscptypeAction(Request $request)
     {
+
+    $vscpclasslist = new VSCPClass;
+
+    $form = $this->createForm(VSCPClassListType::class, $vscpclasslist);
+
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+
+    $vscpclassid = $vscpclasslist->getVscpclassName()->getId();
+
     $vscptype = $this->getDoctrine()
                      ->getManager()
                      ->getRepository('AppBundle:VSCPType')
-                     ->getVSCPType();
+                     ->getVSCPTypeByClass($vscpclassid);
 
         return $this->render('vscptype/index.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
-              'vscptype' => $vscptype,
+            'vscptype' => $vscptype,
+            'form' => $form->createView(),
+            'vscpclassid' => $vscpclassid,
 		]);
+    }
+    else{
+        return $this->render('vscptype/index.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
+            'form' => $form->createView(),
+    ]);
+
+    }
     }
 
     /**
