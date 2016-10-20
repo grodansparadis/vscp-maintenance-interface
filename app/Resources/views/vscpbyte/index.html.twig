@@ -28,8 +28,9 @@
                   <td>{{ vscpbyte.vscpnbyte | trans }}</td>
                   <td>{{ vscpbyte.vscpbyteDescription | slice(0, 100) }}...</td>
                   <td>
-                    <a class="btn glyphicon glyphicon-pencil" href="{{ path('vscpmaint_vscpbyteedit', {'id': vscpbyte.id}) }}">
-                    <a class="btn glyphicon glyphicon-trash" href="{{ path('vscpmaint_vscpbytedelete', {'id': vscpbyte.id}) }}">
+                    <a class="btn glyphicon glyphicon-pencil" href="{{ path('vscpmaint_vscpbyteedit', {'id': vscpbyte.id}) }}" title="Change byte">
+                    <a class="btn glyphicon glyphicon-trash" href="{{ path('vscpmaint_vscpbytedelete', {'id': vscpbyte.id}) }}" title="Delete byte">
+                    <a class="btn glyphicon glyphicon-eye-open" href="#" title="View details">
                    </td>
                 </tr>
 			  {% else %}
