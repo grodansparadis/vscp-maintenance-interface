@@ -8,7 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
-class VSCPByteType extends AbstractType
+class VSCPTypeListType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -17,9 +17,7 @@ class VSCPByteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('vscpbyte')
-            ->add('vscpnbyte')
-            ->add('vscpbytetype', EntityType::class, array(
+             ->add('VscptypeName', EntityType::class, array(
               'class'    => 'AppBundle:VSCPType',
               'query_builder' => function(EntityRepository $er) {
                 return $er->createQueryBuilder('u')
@@ -29,10 +27,9 @@ class VSCPByteType extends AbstractType
               },
               'choice_label' => 'vscptypeName',
               'multiple' => false,
-              'expanded' => false
+              'expanded' => false,
                 ))
 
-            ->add('vscpbyteDescription')
         ;
     }
     
@@ -42,7 +39,7 @@ class VSCPByteType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\VSCPByte'
+            'data_class' => 'AppBundle\Entity\VSCPType'
         ));
     }
 }

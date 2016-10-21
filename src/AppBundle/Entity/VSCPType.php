@@ -28,7 +28,6 @@ class VSCPType
      * @var int
      *
      * @ORM\Column(name="vscptype", type="integer")
-     * @Assert\NotBlank()
      */
     private $vscptype;
 
@@ -158,4 +157,6 @@ class VSCPType
     {
         return $this->vscptypeName;
     }
+
+
 }

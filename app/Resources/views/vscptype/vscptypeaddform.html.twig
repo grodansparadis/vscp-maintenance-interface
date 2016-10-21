@@ -5,6 +5,11 @@
 
 <div class="input-group">
 	<div class="form-group">
+	  {{ form_label(form.vscptypeclass, "Class") }}
+	  {{ form_errors(form.vscptypeclass) }}
+	  {{ form_widget(form.vscptypeclass) }}
+	</div>
+	<div class="form-group">
 	  {{ form_label(form.vscptype, "Type") }}
 	  {{ form_errors(form.vscptype) }}
 	  {{ form_widget(form.vscptype) }}
@@ -13,11 +18,6 @@
 	  {{ form_label(form.vscptypeName, "Type name") }}
 	  {{ form_errors(form.vscptypeName) }}
 	  {{ form_widget(form.vscptypeName) }}
-	</div>
-	<div class="form-group">
-	  {{ form_label(form.vscptypeclass, "Class") }}
-	  {{ form_errors(form.vscptypeclass) }}
-	  {{ form_widget(form.vscptypeclass) }}
 	</div>
 	<div class="form-group">
 	  {{ form_label(form.vscptypeDescription, "Description") }}

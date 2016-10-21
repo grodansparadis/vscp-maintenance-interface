@@ -5,7 +5,6 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\VSCPType;
 use AppBundle\Entity\VSCPClass;
 use AppBundle\Form\VSCPTypeType;
-use AppBundle\Form\VSCPClassType;
 use AppBundle\Form\VSCPClassListType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;

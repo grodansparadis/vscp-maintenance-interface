@@ -3,22 +3,20 @@
 {% block body %}
   <h2>{{ 'Types' | trans }}</h2>
 
-        <div>
-          
-          {{ form_start(form, {'action' : path('vscpmaint_vscptype') }) }}
-          {{ form_errors(form) }}
-<div class="input-group">
-  <div class="form-group">
-    {{ form_errors(form.vscpclassName) }}
-    {{ form_widget(form.vscpclassName) }}
-  {{ form_rest(form) }}
+  <div>
+    {{ form_start(form, {'action' : path('vscpmaint_vscptype') }) }}
+    {{ form_errors(form) }}
+      <div class="input-group">
+        <div class="form-group">
+          {{ form_errors(form.vscpclassName) }}
+          {{ form_widget(form.vscpclassName) }}
+          {{ form_rest(form) }}
 
-    <input type="submit" class="btn btn-primary" value="Show"/>
+          <input type="submit" class="btn btn-primary" value="Show"/>
 
-    <a class="btn btn-primary" href="{{ path('vscpmaint_vscptypeadd') }}">{{ 'Add' | trans }}</a>
-  </div>
-
+          <a class="btn btn-primary" href="{{ path('vscpmaint_vscptypeadd') }}">{{ 'Add' | trans }}</a>
         </div>
+      </div>
         <div>
           <div class="table-responsive">
             <table class="table table-striped">
