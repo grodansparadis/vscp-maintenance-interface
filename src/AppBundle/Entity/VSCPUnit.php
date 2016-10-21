@@ -3,12 +3,15 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * VSCPUnit
  *
  * @ORM\Table(name="vscpmaint_unit")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\VSCPUnitRepository")
+ * @UniqueEntity(fields={"vscpunit", "vscpunittype"}, message="Such unit/byte combination already exists.")
  */
 class VSCPUnit
 {
@@ -24,7 +27,8 @@ class VSCPUnit
     /**
      * @var int
      *
-     * @ORM\Column(name="vscpunit", type="integer", unique=true)
+     * @ORM\Column(name="vscpunit", type="integer")
+     * @Assert\NotBlank()
      */
     private $vscpunit;
 

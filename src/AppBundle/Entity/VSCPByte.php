@@ -3,12 +3,15 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * VSCPByte
  *
  * @ORM\Table(name="vscpmaint_byte")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\VSCPByteRepository")
+ * @UniqueEntity(fields={"vscpbyte", "vscpbytetype"}, message="Such byte/type combination already exists.")
  */
 class VSCPByte
 {
@@ -24,8 +27,9 @@ class VSCPByte
     /**
      * @var int
      *
-     * @ORM\Column(name="vscpbyte", type="integer", unique=true)
-     */
+     * @ORM\Column(name="vscpbyte", type="integer")
+     * @Assert\NotBlank()
+      */
     private $vscpbyte;
 
     /**

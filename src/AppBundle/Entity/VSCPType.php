@@ -3,12 +3,15 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * VSCPType
  *
  * @ORM\Table(name="vscpmaint_type")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\VSCPTypeRepository")
+ * @UniqueEntity(fields={"vscptype", "vscptypeclass"}, message="Such type/class combination already exists.")
  */
 class VSCPType
 {
@@ -24,7 +27,8 @@ class VSCPType
     /**
      * @var int
      *
-     * @ORM\Column(name="vscptype", type="integer", unique=true)
+     * @ORM\Column(name="vscptype", type="integer")
+     * @Assert\NotBlank()
      */
     private $vscptype;
 
