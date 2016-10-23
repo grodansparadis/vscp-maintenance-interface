@@ -21,11 +21,14 @@ class VSCPTypeListType extends AbstractType
               'class'    => 'AppBundle:VSCPType',
               'query_builder' => function(EntityRepository $er) {
                 return $er->createQueryBuilder('u')
+                    ->addSelect('t')
                     ->join('u.vscptypeclass', 't' )
                     ->orderBy('t.vscpclassName', 'ASC')
                     ->addOrderBy('u.vscptype', 'ASC');
               },
-              'choice_label' => 'vscptypeName',
+              'choice_label' => function($vscptypeName){
+                return $vscptypeName->getvscptypeclass()->getvscpclassName() . " - " . $vscptypeName->getvscptypeName();
+              },
               'multiple' => false,
               'expanded' => false,
                 ))
