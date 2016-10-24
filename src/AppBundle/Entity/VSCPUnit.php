@@ -11,7 +11,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *
  * @ORM\Table(name="vscpmaint_unit")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\VSCPUnitRepository")
- * @UniqueEntity(fields={"vscpunit", "vscpunittype"}, message="Such unit/byte combination already exists.")
+ * @UniqueEntity(fields={"vscpunit", "vscpunittype"}, message="Such unit/type combination already exists.")
  */
 class VSCPUnit
 {

@@ -27,7 +27,9 @@ class VSCPByteType extends AbstractType
                     ->orderBy('t.vscpclassName', 'ASC')
                     ->addOrderBy('u.vscptype', 'ASC');
               },
-              'choice_label' => 'vscptypeName',
+              'choice_label' => function($vscptypeName){
+                return $vscptypeName->getvscptypeclass()->getvscpclassName() . " - " . $vscptypeName->getvscptypeName();
+              },
               'multiple' => false,
               'expanded' => false
                 ))
