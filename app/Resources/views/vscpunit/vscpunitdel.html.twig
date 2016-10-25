@@ -5,7 +5,7 @@
   <h2>{{ 'Delete a unit' | trans }}</h2>
 
   <p>
-    {{ 'Confirm you want to delete unit' | trans }} : {{ vscpunit.vscpunit }}.
+    {{ 'Confirm you want to delete unit' | trans }} {{ vscpunit.vscpunit }} from class/type {{ vscpunit.vscpunittype.vscptypeclass.vscpclassName }}/{{ vscpunit.vscpunittype.vscptypeName }}.
   </p>
 
   <form action="{{ path('vscpmaint_vscpunitdelete', {'id': vscpunit.id}) }}" method="post">

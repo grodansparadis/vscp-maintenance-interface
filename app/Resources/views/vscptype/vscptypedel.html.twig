@@ -5,7 +5,7 @@
   <h2>{{ 'Delete a type' | trans }}</h2>
 
   <p>
-    {{ 'Confirm you want to delete type' | trans }} : {{ vscptype.vscptype }}.
+    {{ 'Confirm you want to delete type' | trans }} {{ vscptype.vscptypeclass.vscpclassName }}/{{ vscptype.vscptypeName }}.
   </p>
 
   <form action="{{ path('vscpmaint_vscptypedelete', {'id': vscptype.id}) }}" method="post">

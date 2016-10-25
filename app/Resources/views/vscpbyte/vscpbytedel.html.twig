@@ -5,7 +5,7 @@
   <h2>{{ 'Delete a byte' | trans }}</h2>
 
   <p>
-    {{ 'Confirm you want to delete byte' | trans }} : {{ vscpbyte.vscpbyte }}.
+    Confirm you want to delete byte {{ vscpbyte.vscpbyte }} from class/type {{ vscpbyte.vscpbytetype.vscptypeclass.vscpclassName }}/{{ vscpbyte.vscpbytetype.vscptypeName }}.
   </p>
 
   <form action="{{ path('vscpmaint_vscpbytedelete', {'id': vscpbyte.id}) }}" method="post">
