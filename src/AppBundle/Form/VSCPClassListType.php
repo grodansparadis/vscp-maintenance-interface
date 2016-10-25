@@ -24,6 +24,7 @@ class VSCPClassListType extends AbstractType
                     ->orderBy('u.vscpclassName', 'ASC');
               },
               'choice_label' => 'vscpclassName',
+              'placeholder' => 'Select a class',
               'multiple' => false,
               'expanded' => false,
                 ))

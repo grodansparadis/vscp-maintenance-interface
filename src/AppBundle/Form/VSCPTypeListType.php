@@ -29,6 +29,7 @@ class VSCPTypeListType extends AbstractType
               'choice_label' => function($vscptypeName){
                 return $vscptypeName->getvscptypeclass()->getvscpclassName() . " - " . $vscptypeName->getvscptypeName();
               },
+              'placeholder' => 'Select a type',
               'multiple' => false,
               'expanded' => false,
                 ))

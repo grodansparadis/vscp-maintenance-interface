@@ -9,10 +9,8 @@
       <div class="input-group">
         <div class="form-group">
           {{ form_errors(form.VscptypeName) }}
-          {{ form_widget(form.VscptypeName) }}
+          {{ form_widget(form.VscptypeName, {'attr':{'onChange': 'javascript:document.vscp_type_list.submit()'}}) }}
           {{ form_rest(form) }}
-
-          <input type="submit" class="btn btn-primary" value="Show"/>
 
           <a class="btn btn-primary" href="{{ path('vscpmaint_vscpunitadd') }}">{{ 'Add' | trans }}</a>
         </div>
