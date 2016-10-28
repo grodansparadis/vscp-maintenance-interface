@@ -36,9 +36,11 @@
                   <td>{{ vscptype.vscpclassName | trans }}</td>
                   <td>{{ vscptype.vscptypeDescription | slice(0, 100) }}...</td>
                   <td>
+                    <a class="btn glyphicon glyphicon-eye-open" href="#" title="View details">
+        {% if app.user %}
                     <a class="btn glyphicon glyphicon-pencil" href="{{ path('vscpmaint_vscptypeedit', {'id': vscptype.id}) }}" title="Change type">
                     <a class="btn glyphicon glyphicon-trash" href="{{ path('vscpmaint_vscptypedelete', {'id': vscptype.id}) }}" title="Delete type">
-                    <a class="btn glyphicon glyphicon-eye-open" href="#" title="View details">
+        {% endif %}
                    </td>
                 </tr>
 			  {% else %}

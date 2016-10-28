@@ -7,6 +7,7 @@ use AppBundle\Entity\VSCPType;
 use AppBundle\Form\VSCPByteType;
 use AppBundle\Form\VSCPTypeListType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -49,8 +50,10 @@ class VSCPByteController extends Controller
 
     /**
      * @Route("/vscpbyte_add", name="vscpmaint_vscpbyteadd")
+     * @Security("has_role('ROLE_ADMIN')")
      */
-    public function typeaddAction(Request $request)
+
+    public function byteaddAction(Request $request)
     {
         $vscpbyte = new VSCPByte;
 
@@ -73,8 +76,9 @@ class VSCPByteController extends Controller
 
     /**
      * @Route("/vscpbyte_delete/{id}", name="vscpmaint_vscpbytedelete")
+     * @Security("has_role('ROLE_ADMIN')")
      */
-    public function typedeleteAction(Request $request, VSCPByte $vscpbyte)
+    public function bytedeleteAction(Request $request, VSCPByte $vscpbyte)
     {
 
     $form = $this->createFormBuilder()->getForm();
@@ -99,8 +103,9 @@ class VSCPByteController extends Controller
 
     /**
      * @Route("/vscpbyte_edit/{id}", name="vscpmaint_vscpbyteedit")
+     * @Security("has_role('ROLE_ADMIN')")
      */
-    public function typeeditAction(Request $request, VSCPByte $vscpbyte)
+    public function byteeditAction(Request $request, VSCPByte $vscpbyte)
     {
     $form = $this->createForm(VSCPByteType::class, $vscpbyte);
     $form->handleRequest($request);

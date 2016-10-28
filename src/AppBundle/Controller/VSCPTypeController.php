@@ -7,6 +7,7 @@ use AppBundle\Entity\VSCPClass;
 use AppBundle\Form\VSCPTypeType;
 use AppBundle\Form\VSCPClassListType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -51,6 +52,7 @@ class VSCPTypeController extends Controller
 
     /**
      * @Route("/vscptype_add", name="vscpmaint_vscptypeadd")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function typeaddAction(Request $request)
     {
@@ -75,6 +77,7 @@ class VSCPTypeController extends Controller
 
     /**
      * @Route("/vscptype_delete/{id}", name="vscpmaint_vscptypedelete")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function typedeleteAction(Request $request, VSCPType $vscptype)
     {
@@ -101,6 +104,7 @@ class VSCPTypeController extends Controller
 
     /**
      * @Route("/vscptype_edit/{id}", name="vscpmaint_vscptypeedit")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function typeeditAction(Request $request, VSCPType $vscptype)
     {

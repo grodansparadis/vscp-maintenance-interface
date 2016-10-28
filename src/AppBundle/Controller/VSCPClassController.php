@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\VSCPClass;
 use AppBundle\Form\VSCPClassType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -28,6 +29,7 @@ class VSCPClassController extends Controller
 
     /**
      * @Route("/vscpclass_add", name="vscpmaint_vscpclassadd")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function classaddAction(Request $request)
     {
@@ -52,6 +54,7 @@ class VSCPClassController extends Controller
 
     /**
      * @Route("/vscpclass_delete/{id}", name="vscpmaint_vscpclassdelete")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function classdeleteAction(Request $request, VSCPClass $vscpclass)
     {
@@ -78,6 +81,7 @@ class VSCPClassController extends Controller
 
     /**
      * @Route("/vscpclass_edit/{id}", name="vscpmaint_vscpclassedit")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function classeditAction(Request $request, VSCPClass $vscpclass)
     {
