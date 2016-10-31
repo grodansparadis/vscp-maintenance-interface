@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<H2>User management</H2>
+
+        <div>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>{{ 'ID' | trans }}</th>
+                  <th>{{ 'User name' | trans }}</th>
+                  <th>{{ 'Email' | trans }}</th>
+                  <th>{{ 'Last login' | trans }}</th>
+                  <th>{{ 'Enabled' | trans }}</th>
+                  <th>{{ 'Roles' | trans }}</th>
+                  <th colspan = 2>&nbsp;</th>
+                </tr>
+              </thead>
+              <tbody>
+			  {% for user in users %}
+                <tr>
+                  <td>{{ user.id }}</td>
+                  <td>{{ user.username }}</td>
+                  <td>{{ user.email }}</td>
+                  <td>{{ user.lastLogin | date}}</td>
+                  <td>{{ user.enabled }}</td>
+                  <td>{{ user.roles.0 }}</td>
+                  <td>
+        {% if is_granted('ROLE_USER') %}
+                    <a class="btn glyphicon glyphicon-pencil" href="{{ path('vscpmaint_useredit', {'username': user.username}) }}" title="Change user">
+                    <a class="btn glyphicon glyphicon-trash" href="{{ path('vscpmaint_userdelete', {'username': user.username}) }}" title="Delete user">
+        {% endif %}
+                   </td>
+                </tr>
+			  {% else %}
+			    <p>{{ 'No record in this table' | trans }}.</p>
+			  {% endfor %}
+              </tbody>
+            </table>
+          </div>
+      </div>
+
+{% endblock %}

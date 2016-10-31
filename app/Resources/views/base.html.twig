@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
         <title>{% block title %}VSCP Maintenance Interface{% endblock %}</title>
         {% block stylesheets %}
       <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
@@ -31,8 +36,14 @@
                 <li><a href="{{ path('vscpmaint_vscpunit') }}">{{ 'Units' | trans }}</a></li>
               </ul>
             </li>
-
-
+                {% if is_granted('ROLE_USER') %}
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ 'Admin'   | trans }} <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="{{ path('vscpmaint_user') }}">{{ 'Users' | trans }}</a></li>
+              </ul>
+            </li>
+                {% endif %}
             <li><a href="{{ path('vscpmaint_about') }}">{{ 'About' | trans }}</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
