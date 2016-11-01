@@ -1,0 +1,45 @@
+<div>
+<form action="{{ path('vscpmaint_useredit', {'username': user.username}) }}" method="post">
+
+{{ form_errors(form) }}
+
+<div class="input-group">
+	<div class="form-group">
+	  {{ form_label(form.username, "User name") }}
+	  {{ form_errors(form.username) }}
+	  {{ form_widget(form.username) }}
+	</div>
+	<div class="form-group">
+	  {{ form_label(form.firstname, "First name") }}
+	  {{ form_errors(form.firstname) }}
+	  {{ form_widget(form.firstname) }}
+	</div>
+	<div class="form-group">
+	  {{ form_label(form.lastname, "Last name") }}
+	  {{ form_errors(form.lastname) }}
+	  {{ form_widget(form.lastname) }}
+	</div>
+	<div class="form-group">
+	  {{ form_label(form.email, "E-mail") }}
+	  {{ form_errors(form.email) }}
+	  {{ form_widget(form.email) }}
+	</div>
+	<div class="form-group">
+	  {{ form_label(form.roles, "Roles") }}
+	  {{ form_errors(form.roles) }}
+	  {{ form_widget(form.roles) }}
+	</div>
+	<div class="form-group">
+	  {{ form_label(form.enabled, "Enabled") }}
+	  {{ form_errors(form.enabled) }}
+	  {{ form_widget(form.enabled) }}
+	</div>
+	{{ form_rest(form) }}
+
+	<div>
+	  <input type="submit" class="btn btn-primary" />
+	</div>
+</div>
+
+</form>
+</div>

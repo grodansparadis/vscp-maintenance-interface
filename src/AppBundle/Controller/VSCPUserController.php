@@ -5,12 +5,15 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use AppBundle\Entity\User;
+use AppBundle\Form\UserType;
 
 class VSCPUserController extends Controller
 {
     /**
      * @Route("/vscpuser", name="vscpmaint_user")
+   * @Security("has_role('ROLE_ADMIN')")
      */
     public function userAction(Request $request)
     {
@@ -26,6 +29,7 @@ class VSCPUserController extends Controller
 
   /**
    * @Route("/vscpuserdelete/{username}", name="vscpmaint_userdelete")
+   * @Security("has_role('ROLE_ADMIN')")
    */
     public function deluserAction( Request $request, $username )
   {
@@ -53,34 +57,31 @@ class VSCPUserController extends Controller
   } 
 
   /**
-   * @Route("/vscpuseredit", name="vscpmaint_useredit")
+   * @Route("/vscpuseredit/{username}", name="vscpmaint_useredit")
+   * @Security("has_role('ROLE_ADMIN')")
    */
-    public function edituserAction( $username )
+    public function edituserAction( Request $request, $username )
     {
 
       $userManager = $this->get('fos_user.user_manager');
-        $user = $userManager->findUserByUsername($username);
+      $user = $userManager->findUserByUsername($username);
 
-        $form = $this->createForm(new UserType, $user);
+      $form = $this->createForm(UserType::class, $user);
+      $form->handleRequest($request);
 
-    $request = $this->get('request');
-
-    if ($request->getMethod() == 'POST') {
-      $form->bind($request);
-
-      if ($form->isValid()) {
-        $password = $form["password"]->getData();
-        $user->setPlainPassword($password);
+    if ($form->isSubmitted() && $form->isValid()) {
+//        $password = $form["password"]->getData();
+//        $user->setPlainPassword($password);
         $userManager -> updateUser($user);
 
-        return $this->redirect($this->generateUrl('admin_user'));
+        return $this->redirect($this->generateUrl('vscpmaint_user'));
       }
-    }
 
-        return $this->render('LljmAdminBundle:User:useredit.html.twig', array(
-          'user' => $user,
-          'form' => $form->createView()
-          ));
+    return $this->render('users/useredit.html.twig', [
+      'user' => $user,
+      'form'    => $form->createView()
+    ]);
+
     }
 
 }
