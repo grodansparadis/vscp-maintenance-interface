@@ -10,6 +10,7 @@
         <title>{% block title %}VSCP Maintenance Interface{% endblock %}</title>
         {% block stylesheets %}
       <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+      <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}" />
       {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
@@ -27,6 +28,7 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
+                {% if is_granted('ROLE_USER') %}
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ 'Data'   | trans }} <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -36,7 +38,6 @@
                 <li><a href="{{ path('vscpmaint_vscpunit') }}">{{ 'Units' | trans }}</a></li>
               </ul>
             </li>
-                {% if is_granted('ROLE_USER') %}
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ 'Admin'   | trans }} <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -44,6 +45,7 @@
               </ul>
             </li>
                 {% endif %}
+            <li><a href="{{ path('vscpmaint_classbrowser') }}">{{ 'Class browser' | trans }}</a></li>
             <li><a href="{{ path('vscpmaint_about') }}">{{ 'About' | trans }}</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">

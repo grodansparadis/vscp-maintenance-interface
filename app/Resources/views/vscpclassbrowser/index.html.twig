@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+
+<div class="sidenav">
+<h2>Event classes</h2>
+
+{% for vscpclass in vscpclass %}
+
+    <a href="{{ path('vscpmaint_classbrowser', {'id': vscpclass.id}) }}">{{ vscpclass.vscpclassToken }}</a>
+
+{% endfor %}
+
+</div>
+
+
+<div id="main">
+When you cklick on a class, the class' description is displayed as well as all types connected to that class.
+<br>
+When you click on a type, a description of the type is displayed, as well as bytes and units related to this type.
+<br>
+Classes list is always visible on the sidebar.
+</div>
+
+{% endblock %}
+
+
