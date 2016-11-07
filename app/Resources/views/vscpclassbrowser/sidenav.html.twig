@@ -1,0 +1,10 @@
+<div class="sidenav">
+<h3>Event classes</h3 >
+
+{% for vscpclass in vscpclass %}
+
+    <a href="{{ path('vscpmaint_indexbrowser', {'id': vscpclass.id}) }}">{{ vscpclass.vscpclassToken }}</a>
+
+{% endfor %}
+
+</div>

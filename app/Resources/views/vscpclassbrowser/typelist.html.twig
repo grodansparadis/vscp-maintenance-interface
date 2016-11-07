@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+
+{% include "vscpclassbrowser/sidenav.html.twig" %}
+
+
+<div id="main">
+
+<H2> Class : {{ selectedclass.vscpclassName }}</H2>
+
+
+<div class="well"> {{ selectedclass.vscpclassToken }}</div>
+
+
+{{ selectedclass.vscpclassDescription }}
+
+
+<h3>Types:</h3>
+
+{% for vscptype in vscptype %}
+
+    <li><a href="#">{{ vscptype.vscptypeName }}</a></li>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}
+
+
