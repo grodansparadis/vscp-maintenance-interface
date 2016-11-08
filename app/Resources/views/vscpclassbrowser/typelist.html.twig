@@ -22,7 +22,7 @@
 
 {% for vscptype in vscptype %}
 
-    <li><a href="#">{{ vscptype.vscptypeName }}</a></li>
+    <li><a href="{{ path('vscpmaint_typedetail', {'id': vscptype.id}) }}">{{ vscptype.vscptypeName }}</a></li>
 
 {% endfor %}
 

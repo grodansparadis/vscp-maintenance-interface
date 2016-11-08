@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+
+{% include "vscpclassbrowser/sidenav.html.twig" %}
+
+
+<div id="main">
+
+<H2> Type : {{ selectedtype.vscptypeName }}</H2>
+
+
+
+{{ selectedtype.vscptypeDescription }}
+
+
+<h3>Bytes:</h3>
+
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>{{ 'Byte' | trans }}</th>
+                  <th>{{ 'Class/Type' | trans }}</th>
+                  <th>{{ 'NByte' | trans }}</th>
+                  <th>{{ 'Description' | trans }}</th>
+                </tr>
+              </thead>
+              <tbody>
+{% if vscpbyte is defined %}
+			  {% for vscpbyte in vscpbyte %}
+                <tr>
+                  <td>{{ vscpbyte.vscpbyte | trans }}</td>
+                  <td>{{ vscpbyte.vscpclassName }}/{{ vscpbyte.vscptypeName }}</td>
+                  <td>{{ vscpbyte.vscpnbyte | trans }}</td>
+                  <td>{{ vscpbyte.vscpbyteDescription }}</td>
+                </tr>
+			  {% else %}
+			    <p>{{ 'No byte for this type.	' | trans }}.</p>
+			  {% endfor %}
+{% endif %}
+              </tbody>
+            </table>
+          </div>
+
+<h3>Units:</h3>
+
+{% if vscpunit is defined %}
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>{{ 'Unit' | trans }}</th>
+                  <th>{{ 'Class/Type' | trans }}</th>
+                  <th>{{ 'NUnit' | trans }}</th>
+                  <th>{{ 'Description' | trans }}</th>
+                </tr>
+              </thead>
+              <tbody>
+			  {% for vscpunit in vscpunit %}
+                <tr>
+                  <td>{{ vscpunit.vscpunit | trans }}</td>
+                  <td>{{ vscpunit.vscpclassName }}/{{ vscpunit.vscptypeName }}</td>
+                  <td>{{ vscpunit.vscpnunit | trans }}</td>
+                  <td>{{ vscpunit.vscpunitDescription }}</td>
+                </tr>
+			  {% else %}
+			    <p>{{ 'No unit for this type.' | trans }}.</p>
+			  {% endfor %}
+{% endif %}
+              </tbody>
+            </table>
+
+</div>
+
+{% endblock %}
+
+

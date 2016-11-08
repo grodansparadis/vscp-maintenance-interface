@@ -3,7 +3,7 @@
 
 {% for vscpclass in vscpclass %}
 
-    <a href="{{ path('vscpmaint_indexbrowser', {'id': vscpclass.id}) }}">{{ vscpclass.vscpclassToken }}</a>
+	<li><a href="{{ path('vscpmaint_indexbrowser', {'id': vscpclass.id}) }}">{{ vscpclass.vscpclassToken }}({{vscpclass.vscpclass}})</a></li>
 
 {% endfor %}
 
