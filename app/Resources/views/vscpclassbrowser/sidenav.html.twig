@@ -16,9 +16,19 @@
 			{% endif %}
 		{% endif %}
 
+		{% if selectedtype is defined %}
+			{% if vscpclass.id == selectedtype.vscptypeclass.id %}
 
+				{% for vscptype in vscptype %}
+			
+				<li><a href="{{ path('vscpmaint_typedetail', {'id': vscptype.id}) }}">{{ vscptype.vscptypeName }}</a></li>
+
+				{% endfor%}
+			{% endif %}
+		{% endif%}
 
 
 {% endfor %}
+
 
 </div>

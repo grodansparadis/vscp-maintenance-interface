@@ -76,12 +76,20 @@ class ClassbrowserController extends Controller
                      ->getRepository('AppBundle:VSCPUnit')
                      ->GetVSCPUnitByType($vscptypeid);
 
+    $vscpclassid = $selectedtype->getVscptypeclass()->getId();
+
+    $vscptype = $this->getDoctrine()
+                     ->getManager()
+                     ->getRepository('AppBundle:VSCPType')
+                     ->GetVSCPTypeByClass($vscpclassid);
+
         return $this->render('vscpclassbrowser/typedetail.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
             'vscpclass' => $vscpclass,
             'selectedtype' => $selectedtype,
             'vscpbyte' => $vscpbyte,
             'vscpunit' => $vscpunit,
+            'vscptype' => $vscptype,
         ]);
     }
 
