@@ -38,13 +38,6 @@ class VSCPByte
     private $vscpbytetype;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="vscpnbyte", type="integer")
-     */
-    private $vscpnbyte;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="vscpbyteDescription", type="text")
@@ -84,30 +77,6 @@ class VSCPByte
     public function getVscpbyte()
     {
         return $this->vscpbyte;
-    }
-
-    /**
-     * Set vscpnbyte
-     *
-     * @param integer $vscpnbyte
-     *
-     * @return VSCPByte
-     */
-    public function setVscpnbyte($vscpnbyte)
-    {
-        $this->vscpnbyte = $vscpnbyte;
-
-        return $this;
-    }
-
-    /**
-     * Get vscpnbyte
-     *
-     * @return int
-     */
-    public function getVscpnbyte()
-    {
-        return $this->vscpnbyte;
     }
 
     /**

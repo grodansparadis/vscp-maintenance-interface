@@ -22,8 +22,6 @@
               <thead>
                 <tr>
                   <th>{{ 'Byte' | trans }}</th>
-                  <th>{{ 'Class/Type' | trans }}</th>
-                  <th>{{ 'NByte' | trans }}</th>
                   <th>{{ 'Description' | trans }}</th>
                 </tr>
               </thead>
@@ -32,8 +30,6 @@
 			  {% for vscpbyte in vscpbyte %}
                 <tr>
                   <td>{{ vscpbyte.vscpbyte | trans }}</td>
-                  <td>{{ vscpbyte.vscpclassName }}/{{ vscpbyte.vscptypeName }}</td>
-                  <td>{{ vscpbyte.vscpnbyte | trans }}</td>
                   <td>{{ vscpbyte.vscpbyteDescription }}</td>
                 </tr>
 			  {% else %}
@@ -52,8 +48,6 @@
               <thead>
                 <tr>
                   <th>{{ 'Unit' | trans }}</th>
-                  <th>{{ 'Class/Type' | trans }}</th>
-                  <th>{{ 'NUnit' | trans }}</th>
                   <th>{{ 'Description' | trans }}</th>
                 </tr>
               </thead>
@@ -61,8 +55,6 @@
 			  {% for vscpunit in vscpunit %}
                 <tr>
                   <td>{{ vscpunit.vscpunit | trans }}</td>
-                  <td>{{ vscpunit.vscpclassName }}/{{ vscpunit.vscptypeName }}</td>
-                  <td>{{ vscpunit.vscpnunit | trans }}</td>
                   <td>{{ vscpunit.vscpunitDescription }}</td>
                 </tr>
 			  {% else %}

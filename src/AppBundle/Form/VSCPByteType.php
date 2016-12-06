@@ -18,7 +18,6 @@ class VSCPByteType extends AbstractType
     {
         $builder
             ->add('vscpbyte')
-            ->add('vscpnbyte')
             ->add('vscpbytetype', EntityType::class, array(
               'class'    => 'AppBundle:VSCPType',
               'query_builder' => function(EntityRepository $er) {

@@ -18,7 +18,6 @@ class VSCPUnitType extends AbstractType
     {
         $builder
             ->add('vscpunit')
-            ->add('vscpnunit')
             ->add('vscpunittype', EntityType::class, array(
               'class'    => 'AppBundle:VSCPType',
               'query_builder' => function(EntityRepository $er) {

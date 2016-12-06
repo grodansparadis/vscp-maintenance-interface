@@ -38,13 +38,6 @@ class VSCPUnit
     private $vscpunittype;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="vscpnunit", type="integer")
-     */
-    private $vscpnunit;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="vscpunitDescription", type="text")
@@ -108,30 +101,6 @@ class VSCPUnit
     public function getVscpunittype()
     {
         return $this->vscpunittype;
-    }
-
-    /**
-     * Set vscpnunit
-     *
-     * @param integer $vscpnunit
-     *
-     * @return VSCPUnit
-     */
-    public function setVscpnunit($vscpnunit)
-    {
-        $this->vscpnunit = $vscpnunit;
-
-        return $this;
-    }
-
-    /**
-     * Get vscpnunit
-     *
-     * @return int
-     */
-    public function getVscpnunit()
-    {
-        return $this->vscpnunit;
     }
 
     /**

@@ -18,7 +18,6 @@ class VSCPByteRepository extends \Doctrine\ORM\EntityRepository
       SELECT
       a.id,
       a.vscpbyte,
-      a.vscpnbyte,
       b.vscptype,
       b.vscptypeName,
       c.vscpclassName,
@@ -40,7 +39,6 @@ class VSCPByteRepository extends \Doctrine\ORM\EntityRepository
       SELECT
       a.id,
       a.vscpbyte,
-      a.vscpnbyte,
       b.vscptype,
       b.vscptypeName,
       c.vscpclassName,

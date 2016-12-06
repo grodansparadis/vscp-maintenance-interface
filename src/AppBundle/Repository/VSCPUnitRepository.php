@@ -18,7 +18,6 @@ class VSCPUnitRepository extends \Doctrine\ORM\EntityRepository
       SELECT
       a.id,
       a.vscpunit,
-      a.vscpnunit,
       b.vscptype,
       a.vscpunitDescription
       FROM AppBundle:VSCPUnit a
@@ -37,7 +36,6 @@ class VSCPUnitRepository extends \Doctrine\ORM\EntityRepository
       SELECT
       a.id,
       a.vscpunit,
-      a.vscpnunit,
       b.vscptype,
       b.vscptypeName,
       c.vscpclassName,
