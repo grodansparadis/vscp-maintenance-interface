@@ -5,6 +5,7 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 
 class VSCPClassType extends AbstractType
 {
@@ -18,9 +19,16 @@ class VSCPClassType extends AbstractType
             ->add('vscpclass')
             ->add('vscpclassName')
             ->add('vscpclassToken')
-            ->add('vscpclassDescription')
+            ->add('vscpclassDescription', CKEditorType::class, array(
+                'config' => array(
+                'uiColor' => '#ffffff',
+                'toolbar' => 'full',
+                ),
+            ))
         ;
     }
+
+
     
     /**
      * @param OptionsResolver $resolver
