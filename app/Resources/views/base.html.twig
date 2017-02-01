@@ -57,10 +57,10 @@
             {% endif %}
                 <ul class="dropdown-menu">
             {% if app.user %}
-                  <li><a class="glyphicon glyphicon-log-out" href="logout"> {{ 'Logout' | trans }}</a></li>
+                  <li><a class="glyphicon glyphicon-log-out" href="{{ path('fos_user_security_logout') }}"> {{ 'Logout' | trans }}</a></li>
             {% else %}
-                  <li><a class="glyphicon glyphicon-log-in" href="login"> {{ 'Login' | trans }}</a></li>
-                  <li><a class="glyphicon glyphicon-plus" href="register"> {{ 'Register' | trans }}</a></li>
+                  <li><a class="glyphicon glyphicon-log-in" href="{{ path('fos_user_security_login') }}"> {{ 'Login' | trans }}</a></li>
+                  <li><a class="glyphicon glyphicon-plus" href="{{ path('fos_user_registration_register') }}"> {{ 'Register' | trans }}</a></li>
             {% endif %}
                 </ul>
             </li>
