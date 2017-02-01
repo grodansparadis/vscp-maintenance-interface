@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 
 class VSCPTypeType extends AbstractType
 {
@@ -32,7 +33,12 @@ class VSCPTypeType extends AbstractType
               'expanded' => false
                 ))
 
-            ->add('vscptypeDescription')
+            ->add('vscptypeDescription', CKEditorType::class, array(
+                'config' => array(
+                'uiColor' => '#ffffff',
+                'toolbar' => 'full',
+                ),
+            ))
         ;
     }
     
