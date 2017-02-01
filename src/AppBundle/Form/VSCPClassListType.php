@@ -21,7 +21,7 @@ class VSCPClassListType extends AbstractType
               'class'    => 'AppBundle:VSCPClass',
               'query_builder' => function(EntityRepository $er) {
                 return $er->createQueryBuilder('u')
-                    ->orderBy('u.id', 'ASC');
+                    ->orderBy('u.vscpclass', 'ASC');
               },
               'choice_label' => 'vscpclassName',
               'placeholder' => 'Select a class',
