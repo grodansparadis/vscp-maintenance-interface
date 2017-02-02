@@ -117,8 +117,25 @@ class VSCPByteController extends Controller
 
         $this->get('session')->getFlashBag()->add('info', 'Class updated');
 
-        return $this->redirect($this->generateUrl('vscpmaint_vscpbyte'));
+    $vscptypelist = new VSCPType;
 
+    $form = $this->createForm(VSCPTypeListType::class, $vscptypelist);
+
+    $form->handleRequest($request);
+
+    $vscptypeid = $vscpbyte->getVscpbytetype()->getId();
+
+    $vscpbyte = $this->getDoctrine()
+                     ->getManager()
+                     ->getRepository('AppBundle:VSCPByte')
+                     ->getVSCPByteByType($vscptypeid);
+
+        return $this->render('vscpbyte/index.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
+            'vscpbyte' => $vscpbyte,
+            'form' => $form->createView(),
+            'vscptypeid' => $vscptypeid,
+        ]);
       }
 
     return $this->render('vscpbyte/vscpbyteedit.html.twig', [
