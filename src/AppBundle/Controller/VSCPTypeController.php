@@ -27,7 +27,7 @@ class VSCPTypeController extends Controller
 
     if ($form->isSubmitted() && $form->isValid()) {
 
-    $vscpclassid = $vscpclasslist->getVscpclassName()->getId();
+    $vscpclassid = $vscpclasslist->vscpclassClassAndName->getId();
 
     $vscptype = $this->getDoctrine()
                      ->getManager()
@@ -115,7 +115,7 @@ class VSCPTypeController extends Controller
         $em = $this->getDoctrine()->getManager();
         $em->persist($vscptype);
         $em->flush();
-
+    
         $this->get('session')->getFlashBag()->add('info', 'Class updated');
 
         return $this->redirect($this->generateUrl('vscpmaint_vscptype'));

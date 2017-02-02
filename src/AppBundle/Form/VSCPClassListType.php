@@ -17,13 +17,13 @@ class VSCPClassListType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('vscpclassName', EntityType::class, array(
+            ->add('VscpclassClassAndName', EntityType::class, array(
               'class'    => 'AppBundle:VSCPClass',
               'query_builder' => function(EntityRepository $er) {
                 return $er->createQueryBuilder('u')
                     ->orderBy('u.vscpclass', 'ASC');
               },
-              'choice_label' => 'vscpclassName',
+              'choice_label' => 'VscpclassClassAndName',
               'placeholder' => 'Select a class',
               'multiple' => false,
               'expanded' => false,

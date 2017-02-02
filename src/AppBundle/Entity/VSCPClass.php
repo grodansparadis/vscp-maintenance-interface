@@ -111,6 +111,30 @@ class VSCPClass
     }
 
     /**
+     * Set vscpclassClassAndName
+     *
+     * @param string $vscpclassClassAndName
+     *
+     * @return VSCPClass
+     */
+    public function setVscpclassClassAndName($vscpclassClassAndName)
+    {
+        $this->vscpclassClassAndName = $vscpclassClassAndName;
+
+        return $this;
+    }
+
+    /**
+     * Get vscpclassClassAndName
+     *
+     * @return string
+     */
+    public function getVscpclassClassAndName()
+    {
+        return $this->vscpclass. " - " . $this->vscpclassName;
+    }
+
+    /**
      * Set vscpclassToken
      *
      * @param string $vscpclassToken
