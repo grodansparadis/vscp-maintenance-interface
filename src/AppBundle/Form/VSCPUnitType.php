@@ -23,7 +23,7 @@ class VSCPUnitType extends AbstractType
               'query_builder' => function(EntityRepository $er) {
                 return $er->createQueryBuilder('u')
                     ->join('u.vscptypeclass', 't' )
-                    ->orderBy('t.vscpclassName', 'ASC')
+                    ->orderBy('t.vscpclass', 'ASC')
                     ->addOrderBy('u.vscptype', 'ASC');
               },
               'choice_label' => function($vscptypeName){

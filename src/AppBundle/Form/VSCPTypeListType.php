@@ -23,7 +23,7 @@ class VSCPTypeListType extends AbstractType
                 return $er->createQueryBuilder('u')
                     ->addSelect('t')
                     ->join('u.vscptypeclass', 't' )
-                    ->orderBy('t.vscpclassName', 'ASC')
+                    ->orderBy('t.vscpclass', 'ASC')
                     ->addOrderBy('u.vscptype', 'ASC');
               },
               'choice_label' => function($vscptypeName){
