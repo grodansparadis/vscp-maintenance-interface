@@ -34,9 +34,8 @@
                   <td>{{ vscpunit.vscpclassName }}/{{ vscpunit.vscptypeName }}</td>
                   <td>{{ vscpunit.vscpunitDescription | slice(0, 100) }}...</td>
                   <td>
-                    <a class="btn glyphicon glyphicon-eye-open" href="#" title="View details">
         {% if app.user %}
-                    <a class="btn glyphicon glyphicon-pencil" href="{{ path('vscpmaint_vscpunitedit', {'id': vscpunit.id}) }}" title="Change unit">
+                    <a class="btn glyphicon glyphicon-edit" href="{{ path('vscpmaint_vscpunitedit', {'id': vscpunit.id}) }}" title="Change unit">
                     <a class="btn glyphicon glyphicon-trash" href="{{ path('vscpmaint_vscpunitdelete', {'id': vscpunit.id}) }}" title="Delete unit">
         {% endif %}
                    </td>

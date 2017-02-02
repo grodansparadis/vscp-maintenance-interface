@@ -116,7 +116,25 @@ class VSCPUnitController extends Controller
 
         $this->get('session')->getFlashBag()->add('info', 'Class updated');
 
-        return $this->redirect($this->generateUrl('vscpmaint_vscpunit'));
+    $vscptypelist = new VSCPType;
+
+    $form = $this->createForm(VSCPTypeListType::class, $vscptypelist);
+
+    $form->handleRequest($request);
+
+    $vscptypeid = $vscpunit->getVscpunittype()->getId();
+
+    $vscpunit = $this->getDoctrine()
+                     ->getManager()
+                     ->getRepository('AppBundle:VSCPUnit')
+                     ->getVSCPUnitByType($vscptypeid);
+
+        return $this->render('vscpunit/index.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
+            'vscpunit' => $vscpunit,
+            'form' => $form->createView(),
+            'vscptypeid' => $vscptypeid,
+    ]);
 
       }
 

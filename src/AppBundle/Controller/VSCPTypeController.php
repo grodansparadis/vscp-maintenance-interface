@@ -136,9 +136,6 @@ class VSCPTypeController extends Controller
             'form' => $form->createView(),
             'vscpclassid' => $vscpclassid,
       ]);
-//        return $this->redirect($this->generateUrl('vscpmaint_vscptype'), [
-//          'vscpclass' => '0'
-//      ]);
       }
 
     return $this->render('vscptype/vscptypeedit.html.twig', [
@@ -146,7 +143,6 @@ class VSCPTypeController extends Controller
       'form'    => $form->createView()
     ]);
     }
-
 
 
 }

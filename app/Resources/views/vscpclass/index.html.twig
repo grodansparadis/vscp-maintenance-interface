@@ -28,9 +28,8 @@
                   <td>{{ vscpclass.vscpclassToken | trans }}</td>
                   <td>{{ vscpclass.vscpclassDescription | slice(0, 100) }}...</td>
                   <td>
-                    <a class="btn glyphicon glyphicon-eye-open" href="#" title="View details">
         {% if app.user %}
-                    <a class="btn glyphicon glyphicon-pencil" href="{{ path('vscpmaint_vscpclassedit', {'id': vscpclass.id}) }}" title="Change class">
+                    <a class="btn glyphicon glyphicon-edit" href="{{ path('vscpmaint_vscpclassedit', {'id': vscpclass.id}) }}" title="Change class">
                     <a class="btn glyphicon glyphicon-trash" href="{{ path('vscpmaint_vscpclassdelete', {'id': vscpclass.id}) }}" title="Delete class">
         {% endif %}
                    </td>
