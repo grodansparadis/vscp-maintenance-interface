@@ -10,7 +10,7 @@
 
 				{% for vscptype in vscptype %}
 			
-				<li><a href="{{ path('vscpmaint_typedetail', {'id': vscptype.id}) }}">{{ vscptype.vscptypeName }}</a></li>
+				<li>&nbsp;<a href="{{ path('vscpmaint_typedetail', {'id': vscptype.id}) }}">{{ vscptype.vscptype }}-{{ vscptype.vscptypeName }}</a></li>
 
 				{% endfor%}
 			{% endif %}
@@ -21,7 +21,7 @@
 
 				{% for vscptype in vscptype %}
 			
-				<li><a href="{{ path('vscpmaint_typedetail', {'id': vscptype.id}) }}">{{ vscptype.vscptypeName }}</a></li>
+				<li>&nbsp;<a href="{{ path('vscpmaint_typedetail', {'id': vscptype.id}) }}">{{ vscptype.vscptype }}-{{ vscptype.vscptypeName }}</a></li>
 
 				{% endfor%}
 			{% endif %}
