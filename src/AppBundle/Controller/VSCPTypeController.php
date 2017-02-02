@@ -118,8 +118,27 @@ class VSCPTypeController extends Controller
     
         $this->get('session')->getFlashBag()->add('info', 'Class updated');
 
-        return $this->redirect($this->generateUrl('vscpmaint_vscptype'));
+    $vscpclasslist = new VSCPClass;
 
+    $form = $this->createForm(VSCPClassListType::class, $vscpclasslist);
+
+    $form->handleRequest($request);
+
+    $vscpclassid = $vscptype->getVscptypeclass()->getId();
+    $vscptype = $this->getDoctrine()
+                     ->getManager()
+                     ->getRepository('AppBundle:VSCPType')
+                     ->getVSCPTypeByClass($vscpclassid);
+
+        return $this->render('vscptype/index.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
+            'vscptype' => $vscptype,
+            'form' => $form->createView(),
+            'vscpclassid' => $vscpclassid,
+      ]);
+//        return $this->redirect($this->generateUrl('vscpmaint_vscptype'), [
+//          'vscpclass' => '0'
+//      ]);
       }
 
     return $this->render('vscptype/vscptypeedit.html.twig', [
@@ -127,5 +146,7 @@ class VSCPTypeController extends Controller
       'form'    => $form->createView()
     ]);
     }
+
+
 
 }
